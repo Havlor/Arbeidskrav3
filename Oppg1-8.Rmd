@@ -117,11 +117,11 @@ pwr8 <- pwr.t.test(n = 8, sig.level = 0.05, d = 1.5/3, type = "one.sample")
 ```
 
 
-## Oppgave 4
-
-## Oppgave 5
 
 ## Oppgave 6
+Calculate the number of studies from each sample size that declare a statistical significant effect (specify a threshold for α, your significance level).
+ 
+Vi setter α= 0.05 og ser da at 22.7% (227 studier) av studiene i gruppen med 8 deltagere hadde signifiaknt resultat og 86.5% (865 studier) av studiene med 40 deltagere. 
 
 ## Oppgave 7 
 Using the pwr package, calculate the power of a one-sample t-test, with a effect size of 1.5/3, your specified significance level and sample sizes 8 and 40. Explain the results in the light of your simulations.
