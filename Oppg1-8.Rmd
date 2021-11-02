@@ -20,12 +20,18 @@ m1 <- lm(y ~ 1, data = samp1)
 m2 <- lm(y ~ 1, data = samp2)
 
 summary(m1)
+summary(m2)
 ```
 
 
 ## Oppgave 1
 
+Explain the estimate, SE, t-value, and p-value from the regression models that we created previously (m1 and m2).
+
+
 ## Oppgave 2
+
+Discuss what contributes to the different results in the two studies (m1 and m2)
 
 
 
