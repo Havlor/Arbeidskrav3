@@ -79,8 +79,7 @@ results <- bind_rows(results_8, results_40)
 # utregning til oppg 4
 results %>%
   group_by(n)%>%
-   summarise(sd(estimate), mean(se)) %>%
-  print()
+   summarise(sd(estimate), mean(se))
 
 
 # histogram oppg 5
@@ -118,6 +117,8 @@ pwr8 <- pwr.t.test(n = 8, sig.level = 0.05, d = 1.5/3, type = "one.sample")
 ```
 
 Oppgave 4. Calculate the standard deviation of the estimate variable, and the average of the se variable for each of the study sample sizes (8 and 40). Explain why these numbers are very similar. How can you define the Standard Error (SE) in light of these calculations? 
+
+Standarddavviket for estimatvariablen er 1.07 og 0.48 for de simulerte studiene med utvalg på  henholdsvis 8 og 40 deltakere. Gjennomsnittlig standardfeil er på 1.02 for simulerte studier med utvalg på 8 deltakere, og 0.48 for simulerte studier med utvalgsstørrelse på 40.
 
 Oppgave 5. Create a histogram (see example code below) of the p-values from each study sample-size. How do you interpret these histograms, what do they tell you about the effect of sample size on statistical power?
 
