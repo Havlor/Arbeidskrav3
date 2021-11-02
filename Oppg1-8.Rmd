@@ -31,14 +31,9 @@ summary(m1)
 
 ## Oppgave 3
 De grå områdene viser til tilfellene i datasettet der vi har verdier som er lenger fra gjennomsnittet enn den observerte t-verdien. Hvis null-hypotesen er sann, vil t-verdien, eller en verdi lavere enn 1.47 eller høyere enn 1.47, bli observert i 18.5% (p= 0.185) av tilfellene.
-
 ## Oppgave 4-7
 
-Oppgave 4. Calculate the standard deviation of the estimate variable, and the average of the se variable for each of the study sample sizes (8 and 40). Explain why these numbers are very similar. How can you define the Standard Error (SE) in light of these calculations?
 
-Oppgave 5. Create a histogram (see example code below) of the p-values from each study sample-size. How do you interpret these histograms, what do they tell you about the effect of sample size on statistical power?
-
-Figur 1 `r histogram` viser fordelingen av p-verdien i alle simulerte studier med utvalgsstørrelse på henholdsvis 8 og 40. I de simulerte studiene med utvalgsstørrelse på 8 deltakere er spredningen av p-verdier ganske stor og noe jevnfordelt, men med tendens til flere studier som finner en lavere p-verdi. I de simulerte studiene med utvalgsstørrelse på 40 deltakere er det en mye mindre spredning, og med en tydelig overvekt av antall studier med en lav p-verdi. Dette underbygger forholdet mellom statistiske styrke og utvalgsstørrelse, der en større utvalgsstørrelse vil bidra til en større statistisk styrke. 
 
 ```{r}
 # Create data frames to store the model estimates
@@ -116,6 +111,11 @@ pwr40 <- pwr.t.test(n = 40, sig.level = 0.05, d = 1.5/3, type = "one.sample")
 pwr8 <- pwr.t.test(n = 8, sig.level = 0.05, d = 1.5/3, type = "one.sample")
 ```
 
+Oppgave 4. Calculate the standard deviation of the estimate variable, and the average of the se variable for each of the study sample sizes (8 and 40). Explain why these numbers are very similar. How can you define the Standard Error (SE) in light of these calculations?
+
+Oppgave 5. Create a histogram (see example code below) of the p-values from each study sample-size. How do you interpret these histograms, what do they tell you about the effect of sample size on statistical power?
+
+Figur 1 `r histogram` viser fordelingen av p-verdien i alle simulerte studier med utvalgsstørrelse på henholdsvis 8 og 40. I de simulerte studiene med utvalgsstørrelse på 8 deltakere er spredningen av p-verdier ganske stor og noe jevnfordelt, men med tendens til flere studier som finner en lavere p-verdi. I de simulerte studiene med utvalgsstørrelse på 40 deltakere er det en mye mindre spredning, og med en tydelig overvekt av antall studier med en lav p-verdi. Dette underbygger forholdet mellom statistiske styrke og utvalgsstørrelse, der en større utvalgsstørrelse vil bidra til en større statistisk styrke. 
 
 
 ## Oppgave 6
