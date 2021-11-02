@@ -34,7 +34,6 @@ De grå områdene viser til tilfellene i datasettet der vi har verdier som er le
 ## Oppgave 4-7
 
 
-
 ```{r}
 # Create data frames to store the model estimates
 results_8 <- data.frame(estimate = rep(NA, 1000), 
@@ -111,7 +110,7 @@ pwr40 <- pwr.t.test(n = 40, sig.level = 0.05, d = 1.5/3, type = "one.sample")
 pwr8 <- pwr.t.test(n = 8, sig.level = 0.05, d = 1.5/3, type = "one.sample")
 ```
 
-Oppgave 4. Calculate the standard deviation of the estimate variable, and the average of the se variable for each of the study sample sizes (8 and 40). Explain why these numbers are very similar. How can you define the Standard Error (SE) in light of these calculations?
+Oppgave 4. Calculate the standard deviation of the estimate variable, and the average of the se variable for each of the study sample sizes (8 and 40). Explain why these numbers are very similar. How can you define the Standard Error (SE) in light of these calculations? 
 
 Oppgave 5. Create a histogram (see example code below) of the p-values from each study sample-size. How do you interpret these histograms, what do they tell you about the effect of sample size on statistical power?
 
