@@ -31,9 +31,8 @@ summary(m1)
 
 ## Oppgave 3
 De grå områdene viser til tilfellene i datasettet der vi har verdier som er lenger fra gjennomsnittet enn den observerte t-verdien. Hvis null-hypotesen er sann, vil t-verdien, eller en verdi lavere enn 1.47 eller høyere enn 1.47, bli observert i 18.5% (p= 0.185) av tilfellene.
+
 ## Oppgave 4-7
-
-
 ```{r}
 # Create data frames to store the model estimates
 results_8 <- data.frame(estimate = rep(NA, 1000), 
