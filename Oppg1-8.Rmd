@@ -43,7 +43,7 @@ Oppgave 5. Create a histogram (see example code below) of the p-values from each
 results_8 <- data.frame(estimate = rep(NA, 1000), 
                       se = rep(NA, 1000), 
                       pval = rep(NA, 1000), 
-                      n = 8)  
+                      n = 8)
 
 results_40 <- data.frame(estimate = rep(NA, 1000), 
                       se = rep(NA, 1000), 
@@ -79,6 +79,15 @@ for(i in 1:1000) {
 # Save the results in a combined data frame
 
 results <- bind_rows(results_8, results_40)
+
+# histogram oppg 5
+histogram <- results %>%
+  ggplot(aes(pval)) + 
+  geom_histogram() +
+  facet_wrap(~ n)
+
+
+
 ```
 
 ```{r}
