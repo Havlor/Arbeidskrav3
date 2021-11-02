@@ -26,3 +26,164 @@ plot(pressure)
 ```
 
 Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+
+
+```{r}
+library(tidyverse)
+
+set.seed(1)
+population <- rnorm(1000000, mean = 1.5, sd = 3)
+
+
+samp1 <- data.frame(y = sample(population, 8, replace = FALSE))
+
+samp2 <- data.frame(y = sample(population, 40, replace = FALSE))
+
+
+m1 <- lm(y ~ 1, data = samp1)
+m2 <- lm(y ~ 1, data = samp2)
+
+summary(m1)
+```
+
+```{r}
+# Create data frames to store the model estimates
+results_8 <- data.frame(estimate = rep(NA, 1000), 
+                      se = rep(NA, 1000), 
+                      pval = rep(NA, 1000), 
+                      n = 8)  
+
+results_40 <- data.frame(estimate = rep(NA, 1000), 
+                      se = rep(NA, 1000), 
+                      pval = rep(NA, 1000), 
+                      n = 40)
+
+# A for loop used to sample 1000 studies, each iteration (i) will draw a new sample
+# from the population. 
+
+for(i in 1:1000) {
+  
+  # Draw a sample 
+  samp1 <- data.frame(y = sample(population, 8, replace = FALSE))
+  samp2 <- data.frame(y = sample(population, 40, replace = FALSE))
+
+  # Model the data
+  m1 <- lm(y ~ 1, data = samp1)
+  m2 <- lm(y ~ 1, data = samp2)
+  
+  # Extract values from the models
+  results_8[i, 1] <- coef(summary(m1))[1, 1]
+  results_8[i, 2] <- coef(summary(m1))[1, 2]
+  results_8[i, 3] <- coef(summary(m1))[1, 4]
+
+  results_40[i, 1] <- coef(summary(m2))[1, 1]
+  results_40[i, 2] <- coef(summary(m2))[1, 2]
+  results_40[i, 3] <- coef(summary(m2))[1, 4]
+  
+  
+}
+
+
+# Save the results in a combined data frame
+
+results <- bind_rows(results_8, results_40)
+```
+
+```{r}
+# Example code for copy and paste
+
+# A two facets histogram can be created with ggplot2
+results %>%
+  ggplot(aes(pval)) + 
+  geom_histogram() +
+  facet_wrap(~ n) %>%
+
+# Count the proportion of tests below a certain p-value for each 
+results %>%
+  filter(pval < 0.05) %>%
+  group_by(n) %>%
+  summarise(sig_results = n()/1000)
+
+# Using the pwr package
+library(pwr)
+
+pwr40 <- pwr.t.test(n = 40, sig.level = 0.05, d = 1.5/3, type = "one.sample")
+
+pwr8 <- pwr.t.test(n = 8, sig.level = 0.05, d = 1.5/3, type = "one.sample")
+```
+
+## Oppgave 7 
+Using the pwr package, calculate the power of a one-sample t-test, with a effect size of 1.5/3, your specified significance level and sample sizes 8 and 40. Explain the results in the light of your simulations.
+
+Den statistiske styrken til et simulert utvalg med effektstørrelse på 1.5/3, signifikansnivå på 0.05, er i gruppen med et utvalg på 8 på 0.23, og i gruppen med et utvalg på 40 på 0.87. Effektstørrelsen i begge tilfeller er på 0.5.
+
+Studiedesignet vil også påvirke den statistiske styrken. Gitt et signifikansnivå på 0.05 vil den statistiske styrken på et studie med et utvalg på 8 personer være på 0.23, mens det i gruppen med et utvalg på 40 vil være en statistisk styrke på 0.87. Her ser vi et tydelig eksempel på at den statistiske styrken relaterer sterkt til utvalgsstørrelse.
+
+## T-verdi 
+T verdien viser til hvor 
+
+## Oppgave 8 
+
+With a significance level of 5%, how many studies would give you a “false positive” result if you did many repeated studies?
+
+Hvis man gjør mange repeterte studier med en signifikans på 5%, vil vi i de studiene vi oberverer en signifikant forskjell (1/1000) kunne risikere at vi i 5% av disse resultatene observerer en forskjell som ikke er der, og godtar falske positive  resultater. 
+
+```{r}
+population <- rnorm(1000000, mean = 0, sd = 3)
+
+
+# Create data frames to store the model estimates
+results_8b <- data.frame(estimate = rep(NA, 1000), 
+                      se = rep(NA, 1000), 
+                      pval = rep(NA, 1000), 
+                      n = 8)  
+
+results_40b <- data.frame(estimate = rep(NA, 1000), 
+                      se = rep(NA, 1000), 
+                      pval = rep(NA, 1000), 
+                      n = 40)
+
+# A for loop used to sample 1000 studies, each iteration (i) will draw a new sample
+# from the population. 
+
+for(i in 1:1000) {
+  
+  # Draw a sample 
+  samp1b <- data.frame(y = sample(population, 8, replace = FALSE))
+  samp2b <- data.frame(y = sample(population, 40, replace = FALSE))
+
+  # Model the data
+  m1b <- lm(y ~ 1, data = samp1)
+  m2b <- lm(y ~ 1, data = samp2)
+  
+  # Extract values from the models
+  results_8b[i, 1] <- coef(summary(m1))[1, 1]
+  results_8b[i, 2] <- coef(summary(m1))[1, 2]
+  results_8b[i, 3] <- coef(summary(m1))[1, 4]
+
+  results_40b[i, 1] <- coef(summary(m2))[1, 1]
+  results_40b[i, 2] <- coef(summary(m2))[1, 2]
+  results_40b[i, 3] <- coef(summary(m2))[1, 4]
+  
+  
+}
+
+
+# Save the results in a combined data frame
+
+results_null <- bind_rows(results_8b, results_40b)
+
+results_null %>%
+  ggplot(aes(pval)) + 
+  geom_histogram() +
+  facet_wrap(~ n)
+
+#how many significant results would we get
+
+
+results_null %>%
+  filter(pval < 0.05) %>%
+  group_by(n) %>%
+  summarise(sig_results = n()/1000)
+```
+
