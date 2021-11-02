@@ -128,7 +128,7 @@ Using the pwr package, calculate the power of a one-sample t-test, with a effect
 
 Den statistiske styrken til et simulert utvalg med effektstørrelse på 1.5/3, signifikansnivå på 0.05, er i gruppen med et utvalg på 8 på 0.23, og i gruppen med et utvalg på 40 på 0.87. Effektstørrelsen i begge tilfeller er på 0.5.
 
-Studiedesignet vil også påvirke den statistiske styrken. Gitt et signifikansnivå på 0.05 vil den statistiske styrken på et studie med et utvalg på 8 personer være på 0.23, mens det i gruppen med et utvalg på 40 vil være en statistisk styrke på 0.87. Her ser vi et tydelig eksempel på at den statistiske styrken relaterer sterkt til utvalgsstørrelse, hvor en større utvalgsstørrelse vil bidra til en større statistisk styrke. 
+Studiedesignet vil også påvirke den statistiske styrken. Gitt et signifikansnivå på 0.05 vil den statistiske styrken på et studie med et utvalg på 8 personer være på `r pwr8`, mens det i gruppen med et utvalg på 40 vil være en statistisk styrke på `r pwr40`. Her ser vi et tydelig eksempel på at den statistiske styrken relaterer sterkt til utvalgsstørrelse, hvor en større utvalgsstørrelse vil bidra til en større statistisk styrke. 
 
 
 ## Oppgave 8 
