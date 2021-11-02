@@ -75,6 +75,14 @@ for(i in 1:1000) {
 
 results <- bind_rows(results_8, results_40)
 
+
+# utregning til oppg 4
+results %>%
+  group_by(n)%>%
+   summarise(sd(estimate), mean(se)) %>%
+  print()
+
+
 # histogram oppg 5
 histogram <- results %>%
   ggplot(aes(pval)) + 
