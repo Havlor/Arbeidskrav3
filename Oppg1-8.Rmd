@@ -43,7 +43,7 @@ Forklaringen på forskjellen i resultater mellom de to studiene(vist i m1 og m2)
 ## Oppgave 3 
 Why do we use the shaded area in the lower and upper tail of the t-distribution? 
 
-De grå områdene sier noe om hvor ofte vi vil finne lignende eller mer ekstreme resultat i populasjonen vu ønsker å beskrive. Det viser til tilfellene der vi har verdier som er lenger fra gjennomsnittet enn den observerte t-verdien. Tar vi utgangspunkt i m1, og at null-hypotesen er sann, vil den observerte t-verdien(1.47) eller en mer ekstrem verdi, bli observert i 18.5% (p= 0.185) av tilfellene.  
+De grå områdene sier noe om hvor ofte vi vil finne lignende eller mer ekstreme resultater i populasjonen vi ønsker å beskrive. Det viser til tilfellene der vi har verdier som er like langt eller lenger fra gjennomsnittet enn den observerte t-verdien. Tar vi utgangspunkt i m1, og at null-hypotesen er sann, vil den observerte t-verdien(1.47) eller en mer ekstrem verdi, bli observert i 18.5% (p= 0.185) av tilfellene.  
 
 ## Oppgave 4-7
 ```{r}
