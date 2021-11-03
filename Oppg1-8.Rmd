@@ -25,18 +25,25 @@ summary(m2)
 
 
 ## Oppgave 1
-
 Explain the estimate, SE, t-value, and p-value from the regression models that we created previously (m1 and m2).
 
+I m1 er estimatet 1.84, SE er 1.251, T-verdi er 1.47 og p-verdi 0.185. 
+I m2 er estimatet 1.642, SE er 0.4774, T-verdi er 3.276 og p-verdi er 0.00221
+
+
+Estimatet(m1 = 1.84, m2 = 1.642) i modellene til utvalgsstørrelsen viser til stigningstallet i datasettene.
+Standardfeilen(m1 = 1.251, m2 = 0.4774) forteller oss noe om det individuelle standardavviket. T-verdien forklares gjennom at vi deler estimatet på standardfeilen. T-verdien gir et mål på variasjonen i datasettene. T-verdien sier noe om hvor ofte vi vil finne de samme resultatene i populasjonen, gitt at nullhypotesen er sann. En høyere eller lavere t-verdi vil beskrive hvor langt vi er fra gjennomsnittet gitt at nullhypotesen er sann. P-verdien sier noe om hvor overraskende resultatene i eksperimentet er, gitt at nullhypotesen er sann. Jo mer overraskende resultatet er, jo større grunnlag har vi for å forkaste nullhypotesen. 
 
 ## Oppgave 2
-
 Discuss what contributes to the different results in the two studies (m1 and m2)
 
+Forklaringen på forskjellen i resultater mellom de to studiene(vist i m1 og m2) er at for hver forsøksperson vi legger til i utvalget vil den statistske styrken øke, som følge av at vi senker standardfeilen. Dette fører til en økt t-verdi, og lavere p-verdi. Sannsynligvis skyldes den senkede standardfeilen at utvalgsstørrelsen er femdoblet i studien med 40 deltaktere kontra 8. Dette utvalget vil da trolig gi et bedre bide av populasjonen.
 
 
-## Oppgave 3
-De grå områdene viser til tilfellene i datasettet der vi har verdier som er lenger fra gjennomsnittet enn den observerte t-verdien. Hvis null-hypotesen er sann, vil t-verdien, eller en verdi lavere enn 1.47 eller høyere enn 1.47, bli observert i 18.5% (p= 0.185) av tilfellene.
+## Oppgave 3 
+Why do we use the shaded area in the lower and upper tail of the t-distribution? 
+
+De grå områdene viser til tilfellene i datasettet der vi har verdier som er lenger fra gjennomsnittet enn den observerte t-verdien. Tar vi utgangspunkt i m1, og at null-hypotesen er sann, vil den observerte t-verdien(1.47) eller en mer ekstrem verdi, bli observert i 18.5% (p= 0.185) av tilfellene.  
 
 ## Oppgave 4-7
 ```{r}
