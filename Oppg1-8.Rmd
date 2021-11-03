@@ -155,7 +155,7 @@ Studiedesignet vil også påvirke den statistiske styrken. Gitt et signifikansni
 
 With a significance level of 5%, how many studies would give you a “false positive” result if you did many repeated studies?
 
-Hvis man gjør mange repeterte studier med en signifikans på 5%, vil vi i de studiene vi oberverer en signifikant forskjell (100%) kunne risikere at vi i 5% av disse resultatene observerer en forskjell som ikke er der, og godtar falske positive  resultater. 
+Hvis man gjør mange repeterte studier med en signifikans på 5%, vil vi i de studiene vi oberverer en signifikant forskjell kunne risikere at vi i 5% av disse resultatene observerer en forskjell som ikke er der, og godtar falske positive  resultater. 
 
 ```{r}
 population <- rnorm(1000000, mean = 0, sd = 3)
